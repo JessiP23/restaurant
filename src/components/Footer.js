@@ -20,7 +20,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="mt-8 text-center">
-        <p>&copy; 2024 El Sabor Verde. All rights reserved.</p>
+        <p>&copy; 2024 Las Locas. All rights reserved.</p>
       </div>
     </footer>
   );

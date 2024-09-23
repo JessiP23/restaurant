@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ChefHat, Utensils, Clock } from 'lucide-react';
+import { Utensils, Clock } from 'lucide-react';
 
 const Home = () => {
   return (
