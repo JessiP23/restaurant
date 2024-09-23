@@ -18,7 +18,7 @@ const Home = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
         {[
-          { icon: ChefHat, title: 'Master Chefs', description: 'Our culinary experts bring Mexico to your plate' },
+          
           { icon: Utensils, title: 'Fresh Ingredients', description: 'We use only the finest, locally-sourced produce' },
           { icon: Clock, title: 'Quick Service', description: 'Fast service without compromising on quality' }
         ].map((feature, index) => (
