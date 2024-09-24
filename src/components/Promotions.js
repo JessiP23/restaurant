@@ -1,11 +1,13 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-
+import Taco from '../images/taco.jpg';
+import Fiesta from '../images/car.jpg';
+import Happy from '../images/happy.jpg';
 const promotions = [
-  { title: 'Taco Tuesday', description: 'Get 3 tacos for the price of 2 every Tuesday!', image: '/api/placeholder/400/300' },
-  { title: 'Happy Hour', description: '50% off all drinks from 4-6 PM, Monday to Friday', image: '/api/placeholder/400/300' },
-  { title: 'Family Fiesta', description: 'Feed a family of 4 for just $40 on Sundays', image: '/api/placeholder/400/300' },
+  { title: 'Taco Tuesday', description: 'Get 3 tacos for the price of 2 every Tuesday!', image: Taco },
+  { title: 'Happy Hour', description: '50% off all drinks from 4-6 PM, Monday to Friday', image: Fiesta },
+  { title: 'Family Fiesta', description: 'Feed a family of 4 for just $40 on Sundays', image: Happy },
 ];
 
 const Promotions = () => {
