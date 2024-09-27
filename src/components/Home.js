@@ -1,6 +1,6 @@
 'use client'
-import {React, useState} from 'react';
-import { motion } from 'framer-motion';
+import {React, useState, useEffect, useRef} from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 import { Utensils, Clock, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import Burrito from '../images/burrito.jpg'
 import Car from '../images/car.jpg'
@@ -10,6 +10,7 @@ import Burger from '../images/burger.jpg'
 
 const Home = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [direction, setDirection] = useState(1); 
   const images = [
     Burrito,
     Car,
@@ -18,103 +19,111 @@ const Home = () => {
     Burger
   ];
 
-  const nextImage = () => {
-    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-  };
+  const carouselRef = useRef(null);
 
-  const prevImage = () => {
-    setCurrentImageIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
-  };
-    return (
-      <div className="container mx-auto px-4 md:px-8 py-12">
-        <motion.div 
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+  useEffect(() => {
+    const scrollCarousel = () => {
+      if (carouselRef.current) {
+        if (carouselRef.current.scrollLeft >= carouselRef.current.scrollWidth / 2) {
+          carouselRef.current.scrollLeft = 0;
+        } else {
+          carouselRef.current.scrollLeft += 1;
+        }
+      }
+    };
+
+    const intervalId = setInterval(scrollCarousel, 20);
+
+    return () => clearInterval(intervalId);
+  }, []);
+
+  return (
+    <div className="container mx-auto px-4 md:px-8 py-12">
+      <motion.div 
+        className="text-center mb-16"
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        <h2 className="text-6xl font-bold mb-6 text-neon-green">Authentic Mexican Cuisine</h2>
+        <p className="text-2xl text-gray-300">Experience the vibrant flavors of Mexico in every bite</p>
+        <motion.button
+          className="mt-8 bg-neon-green text-black font-bold py-3 px-6 rounded-full hover:bg-white transition duration-300 ease-in-out transform hover:scale-105"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
         >
-          <h2 className="text-6xl font-bold mb-6 text-neon-green">Authentic Mexican Cuisine</h2>
-          <p className="text-2xl text-gray-300">Experience the vibrant flavors of Mexico in every bite</p>
-          <motion.button
-            className="mt-8 bg-neon-green text-black font-bold py-3 px-6 rounded-full hover:bg-white transition duration-300 ease-in-out transform hover:scale-105"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Order Now <ArrowRight className="inline-block ml-2" />
-          </motion.button>
-        </motion.div>
-  
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
-          {[
-            { icon: Utensils, title: 'Fresh Ingredients', description: 'We use only the finest, locally-sourced produce' },
-            { icon: Clock, title: 'Quick Service', description: 'Fast service without compromising on quality' }
-          ].map((feature, index) => (
-            <motion.div 
-              key={feature.title}
-              className="bg-gray-900 p-8 rounded-xl text-left flex items-start"
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-            >
-              <feature.icon className="w-16 h-16 mr-6 text-neon-green flex-shrink-0" />
-              <div>
-                <h3 className="text-2xl font-semibold mb-3">{feature.title}</h3>
-                <p className="text-gray-300 text-lg">{feature.description}</p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+          Order Now <ArrowRight className="inline-block ml-2" />
+        </motion.button>
+      </motion.div>
 
-        <div className="mb-16">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
+        {[
+          { icon: Utensils, title: 'Fresh Ingredients', description: 'We use only the finest, locally-sourced produce' },
+          { icon: Clock, title: 'Quick Service', description: 'Fast service without compromising on quality' }
+        ].map((feature, index) => (
+          <motion.div 
+            key={feature.title}
+            className="bg-gray-900 p-8 rounded-xl text-left flex items-start"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: index * 0.2 }}
+          >
+            <feature.icon className="w-16 h-16 mr-6 text-neon-green flex-shrink-0" />
+            <div>
+              <h3 className="text-2xl font-semibold mb-3">{feature.title}</h3>
+              <p className="text-gray-300 text-lg">{feature.description}</p>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+
+      <div className="mb-16">
         <h3 className="text-3xl font-bold mb-8 text-center">Featured Dishes</h3>
-        <div className="relative">
-          <motion.img
-            src={images[currentImageIndex]}
-            alt="Featured dish"
-            className="w-[90%] h-[90vh] object-cover rounded-xl"
-            key={currentImageIndex}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-          />
-          <button
-            onClick={prevImage}
-            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-50 p-2 rounded-full"
-          >
-            <ChevronLeft className="w-6 h-6" />
-          </button>
-          <button
-            onClick={nextImage}
-            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-50 p-2 rounded-full"
-          >
-            <ChevronRight className="w-6 h-6" />
-          </button>
+        <div 
+          ref={carouselRef}
+          className="overflow-hidden whitespace-nowrap"
+          style={{ height: '300px' }}
+        >
+          <div className="inline-block">
+            {images.concat(images).map((src, index) => (
+              <div
+                key={index}
+                className="inline-block w-[400px] h-[300px] mx-2"
+              >
+                <img 
+                  src={src} 
+                  alt={`Dish ${index + 1}`} 
+                  className="w-full h-full object-cover rounded-xl"
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
-  
-        {/* <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 gap-8"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-        >
-          <motion.img 
-            src={Burrito} 
-            alt="Mexican dish" 
-            className="rounded-xl shadow-2xl object-cover h-96 w-full"
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.3 }}
-          />
-          <motion.img 
-            src={Car} 
-            alt="Restaurant interior" 
-            className="rounded-xl shadow-2xl object-cover h-96 w-full"
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.3 }}
-          />
-        </motion.div> */}
-      </div>
-    );
-  };
-  
-  export default Home;
+
+      {/* <motion.div 
+        className="grid grid-cols-1 md:grid-cols-2 gap-8"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, delay: 0.5 }}
+      >
+        <motion.img 
+          src={Burrito} 
+          alt="Mexican dish" 
+          className="rounded-xl shadow-2xl object-cover h-96 w-full"
+          whileHover={{ scale: 1.05 }}
+          transition={{ duration: 0.3 }}
+        />
+        <motion.img 
+          src={Car} 
+          alt="Restaurant interior" 
+          className="rounded-xl shadow-2xl object-cover h-96 w-full"
+          whileHover={{ scale: 1.05 }}
+          transition={{ duration: 0.3 }}
+        />
+      </motion.div> */}
+    </div>
+  );
+};
+
+export default Home;
