@@ -1,22 +1,28 @@
 'use client'
-import {React, useState, useEffect, useRef} from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
-import { Utensils, Clock, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
+import {React, useEffect, useRef} from 'react';
+import { motion } from 'framer-motion';
+import { Utensils, Clock, ArrowRight } from 'lucide-react';
 import Burrito from '../images/burrito.jpg'
 import Car from '../images/car.jpg'
 import Food from '../images/food.jpg'
 import Carone from '../images/carone.jpg'
 import Burger from '../images/burger.jpg'
+import Worker from '../images/worker.jpg'
+import Side from '../images/side.jpg'
+import Night from '../images/night.jpg'
+import Like from '../images/like.jpg'
 
 const Home = () => {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [direction, setDirection] = useState(1); 
   const images = [
     Burrito,
     Car,
     Food,
     Carone,
-    Burger
+    Burger,
+    Worker,
+    Side,
+    Night,
+    Like
   ];
 
   const carouselRef = useRef(null);
