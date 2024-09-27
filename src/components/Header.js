@@ -13,7 +13,7 @@ const Header = () => {
   const menuItems = [
     { name: 'Home', path: '/' },
     { name: 'Menu', path: '/menu' },
-    { name: 'Promotions', path: '/promotions' },
+    // { name: 'Promotions', path: '/promotions' },
   ];
 
   return (
