@@ -25,7 +25,7 @@ const Header = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
         >
-          Las Locas
+          Lupita Mexican Food
         </motion.h1>
         <nav className="hidden md:block">
           <ul className="flex space-x-8">
