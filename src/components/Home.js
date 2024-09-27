@@ -111,7 +111,7 @@ const Home = () => {
 
       <div className="mb-16">
         <h2 className="text-4xl font-bold mb-8 text-center">Video</h2>
-        <div className="flex justify-center">
+        <div className="flex justify-center h-[90vh]">
           <video
             className="w-full max-w-3xl rounded-xl shadow-lg"
             controls
