@@ -1,11 +1,30 @@
-
-import React from 'react';
+'use client'
+import {React, useState} from 'react';
 import { motion } from 'framer-motion';
-import { Utensils, Clock, ArrowRight } from 'lucide-react';
+import { Utensils, Clock, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import Burrito from '../images/burrito.jpg'
 import Car from '../images/car.jpg'
+import Food from '../images/food.jpg'
+import Carone from '../images/carone.jpg'
+import Burger from '../images/burger.jpg'
 
 const Home = () => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const images = [
+    Burrito,
+    Car,
+    Food,
+    Carone,
+    Burger
+  ];
+
+  const nextImage = () => {
+    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImageIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+  };
     return (
       <div className="container mx-auto px-4 md:px-8 py-12">
         <motion.div 
@@ -45,8 +64,35 @@ const Home = () => {
             </motion.div>
           ))}
         </div>
+
+        <div className="mb-16">
+        <h3 className="text-3xl font-bold mb-8 text-center">Featured Dishes</h3>
+        <div className="relative">
+          <motion.img
+            src={images[currentImageIndex]}
+            alt="Featured dish"
+            className="w-[90%] h-[90vh] object-cover rounded-xl"
+            key={currentImageIndex}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+          />
+          <button
+            onClick={prevImage}
+            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-50 p-2 rounded-full"
+          >
+            <ChevronLeft className="w-6 h-6" />
+          </button>
+          <button
+            onClick={nextImage}
+            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-50 p-2 rounded-full"
+          >
+            <ChevronRight className="w-6 h-6" />
+          </button>
+        </div>
+      </div>
   
-        <motion.div 
+        {/* <motion.div 
           className="grid grid-cols-1 md:grid-cols-2 gap-8"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -66,7 +112,7 @@ const Home = () => {
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
           />
-        </motion.div>
+        </motion.div> */}
       </div>
     );
   };
