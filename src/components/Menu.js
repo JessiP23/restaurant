@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
 
+import Taco from '../images/taco.jpg'
 const menuData = {
   mainDishes: [
-    { name: 'TACOS', price: '$3', description: 'AL PASTOR, POLLO, ASADA, TINGA, CARNITAS', image: '/api/placeholder/300/200' },
+    { name: 'TACOS', price: '$3', description: 'AL PASTOR, POLLO, ASADA, TINGA, CARNITAS', image: Taco },
     { name: 'BURRITOS', price: '$13', description: 'POLLO, ASADA, TINGA, CARNITAS', image: '/api/placeholder/300/200' },
     { name: 'TORTAS', price: '$10', description: 'MILANESA, POLLO, ASADA, TINGA, CARNITAS', image: '/api/placeholder/300/200' },
     { name: 'QUESADILLAS', price: '$10', description: 'POLLO, ASADA, TINGA, CARNITAS', image: '/api/placeholder/300/200' },
