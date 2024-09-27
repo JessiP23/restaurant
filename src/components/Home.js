@@ -12,6 +12,8 @@ import Side from '../images/side.jpg'
 import Night from '../images/night.jpg'
 import Like from '../images/like.jpg'
 
+import Video from '../video/video.mp4'
+
 const Home = () => {
   const images = [
     Burrito,
@@ -104,6 +106,20 @@ const Home = () => {
               </div>
             ))}
           </div>
+        </div>
+      </div>
+
+      <div className="mb-16">
+        <h2 className="text-4xl font-bold mb-8 text-center">Video</h2>
+        <div className="flex justify-center">
+          <video
+            className="w-full max-w-3xl rounded-xl shadow-lg"
+            controls
+            playsInline
+          >
+            <source src={Video} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
         </div>
       </div>
 
