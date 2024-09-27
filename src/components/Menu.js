@@ -20,6 +20,13 @@ import Frijol from '../images/frijol.jpg'
 import Guacamole from '../images/guacamole.jpg'
 import Fries from '../images/fries.jpg'
 import Ensalada from '../images/ensalada.jpg'
+import Agua from '../images/agua.jpg'
+import Clasica from '../images/clasica.jpg'
+import Doble from '../images/doble.jpg'
+import Hawai from '../images/hawai.jpg'
+import Horchata from '../images/horchata.jpg'
+import Jamaica from '../images/jamaica.jpg'
+import Refresco from '../images/refresco.jpg'
 
 const menuData = {
   mainDishes: [
@@ -51,15 +58,15 @@ const menuData = {
     { name: 'ENSALADA', price: '$5', image: Ensalada },
   ],
   combos: [
-    { name: 'CLASICA', price: '$15', image: '/api/placeholder/300/200' },
-    { name: 'DOBLE', price: '$17', image: '/api/placeholder/300/200' },
-    { name: 'HAWAIANA', price: '$17', image: '/api/placeholder/300/200' },
+    { name: 'CLASICA', price: '$15', image: Clasica },
+    { name: 'DOBLE', price: '$17', image: Doble },
+    { name: 'HAWAIANA', price: '$17', image: Hawai },
   ],
   drinks: [
-    { name: 'REFRESCO', price: '$5', image: '/api/placeholder/300/200' },
-    { name: 'AGUA', price: '$5', image: '/api/placeholder/300/200' },
-    { name: 'HORCHATA', price: '$5', image: '/api/placeholder/300/200' },
-    { name: 'JAMAICA', price: '$5', image: '/api/placeholder/300/200' },
+    { name: 'REFRESCO', price: '$5', image: Refresco },
+    { name: 'AGUA', price: '$5', image: Agua },
+    { name: 'HORCHATA', price: '$5', image: Horchata },
+    { name: 'JAMAICA', price: '$5', image: Jamaica },
   ],
 };
 
@@ -100,7 +107,7 @@ const Modal = ({ item, onClose }) => (
           <X size={24} />
         </button>
       </div>
-      <img src={item.image} alt={item.name} className="w-full h-48 object-cover rounded-lg mb-4" />
+      <img src={item.image} alt={item.name} className="w-full h-full object-cover rounded-lg mb-4" />
       <p className="text-xl font-semibold text-gray-800 mb-2">{item.price}</p>
       {item.description && (
         <p className="text-gray-600">{item.description}</p>
