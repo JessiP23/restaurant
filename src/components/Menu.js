@@ -3,34 +3,52 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
 
 import Taco from '../images/taco.jpg'
+import Burrito from '../images/burrito.jpg'
+import Torta from '../images/torta.jpg'
+import Quesadilla from '../images/quesadilla.jpg'
+import Chilaquiles from '../images/chilaquiles.jpg'
+import Enchiladas from '../images/enchiladas.jpg'
+import Fajita from '../images/fajita.jpg'
+import Tostada from '../images/tostada.jpg'
+import Cemita from '../images/cemita.jpg'
+import Pechuga from '../images/pechuga.jpg'
+import Bistec from '../images/bistec.jpg'
+import Huevo from '../images/huevo.jpg'
+import Pollo from '../images/pollo.jpg'
+import Arroz from '../images/arroz.jpg'
+import Frijol from '../images/frijol.jpg'
+import Guacamole from '../images/guacamole.jpg'
+import Fries from '../images/fries.jpg'
+import Ensalada from '../images/ensalada.jpg'
+
 const menuData = {
   mainDishes: [
     { name: 'TACOS', price: '$3', description: 'AL PASTOR, POLLO, ASADA, TINGA, CARNITAS', image: Taco },
-    { name: 'BURRITOS', price: '$13', description: 'POLLO, ASADA, TINGA, CARNITAS', image: '/api/placeholder/300/200' },
-    { name: 'TORTAS', price: '$10', description: 'MILANESA, POLLO, ASADA, TINGA, CARNITAS', image: '/api/placeholder/300/200' },
-    { name: 'QUESADILLAS', price: '$10', description: 'POLLO, ASADA, TINGA, CARNITAS', image: '/api/placeholder/300/200' },
-    { name: 'CHILAQUILES', price: '$13', description: 'POLLO, ASADA, CARNITAS', image: '/api/placeholder/300/200' },
-    { name: 'ENCHILADAS', price: '$15', description: 'POLLO, ASADA, TINGA, CARNITAS', image: '/api/placeholder/300/200' },
-    { name: 'FAJITAS', price: '$15', description: 'POLLO, STEAK', image: '/api/placeholder/300/200' },
-    { name: 'TOSTADAS', price: '$4', description: 'TINGA', image: '/api/placeholder/300/200' },
-    { name: 'CEMITAS', price: '$10', description: '', image: '/api/placeholder/300/200' },
+    { name: 'BURRITOS', price: '$13', description: 'POLLO, ASADA, TINGA, CARNITAS', image: Burrito },
+    { name: 'TORTAS', price: '$10', description: 'MILANESA, POLLO, ASADA, TINGA, CARNITAS', image: Torta },
+    { name: 'QUESADILLAS', price: '$10', description: 'POLLO, ASADA, TINGA, CARNITAS', image: Quesadilla },
+    { name: 'CHILAQUILES', price: '$13', description: 'POLLO, ASADA, CARNITAS', image: Chilaquiles },
+    { name: 'ENCHILADAS', price: '$15', description: 'POLLO, ASADA, TINGA, CARNITAS', image: Enchiladas },
+    { name: 'FAJITAS', price: '$15', description: 'POLLO, STEAK', image: Fajita },
+    { name: 'TOSTADAS', price: '$4', description: 'TINGA', image: Tostada },
+    { name: 'CEMITAS', price: '$10', description: '', image: Cemita },
   ],
   specials: [
-    { name: 'PECHUGA A LA PLANCHA', price: '$15', image: '/api/placeholder/300/200' },
-    { name: 'BISTEC ENCEBOLLADO', price: '$15', image: '/api/placeholder/300/200' },
-    { name: 'HUEVOS A LA MEXICANA', price: '$13', image: '/api/placeholder/300/200' },
+    { name: 'PECHUGA A LA PLANCHA', price: '$15', image: Pechuga },
+    { name: 'BISTEC ENCEBOLLADO', price: '$15', image: Bistec },
+    { name: 'HUEVOS A LA MEXICANA', price: '$13', image: Huevo },
   ],
   kids: [
-    { name: 'QUESADILLA', price: '$7', image: '/api/placeholder/300/200' },
-    { name: 'BURRITO', price: '$7', image: '/api/placeholder/300/200' },
-    { name: 'PAPAS CON POLLO', price: '$10', image: '/api/placeholder/300/200' },
+    { name: 'QUESADILLA', price: '$7', image: Quesadilla },
+    { name: 'BURRITO', price: '$7', image: Burrito },
+    { name: 'PAPAS CON POLLO', price: '$10', image: Pollo },
   ],
   sides: [
-    { name: 'ARROZ', price: '$5', image: '/api/placeholder/300/200' },
-    { name: 'FRIJOLES', price: '$5', image: '/api/placeholder/300/200' },
-    { name: 'GUACAMOLE', price: '$5', image: '/api/placeholder/300/200' },
-    { name: 'PAPAS', price: '$5', image: '/api/placeholder/300/200' },
-    { name: 'ENSALADA', price: '$5', image: '/api/placeholder/300/200' },
+    { name: 'ARROZ', price: '$5', image: Arroz },
+    { name: 'FRIJOLES', price: '$5', image: Frijol },
+    { name: 'GUACAMOLE', price: '$5', image: Guacamole },
+    { name: 'PAPAS', price: '$5', image: Fries },
+    { name: 'ENSALADA', price: '$5', image: Ensalada },
   ],
   combos: [
     { name: 'CLASICA', price: '$15', image: '/api/placeholder/300/200' },
