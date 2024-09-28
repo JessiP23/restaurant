@@ -7,7 +7,7 @@ import Car from '../images/car.jpg'
 import Food from '../images/food.jpg'
 import Carone from '../images/carone.jpg'
 import Burger from '../images/burger.jpg'
-import Worker from '../images/worker.jpg'
+// import Worker from '../images/worker.jpg'
 import Side from '../images/side.jpg'
 import Night from '../images/night.jpg'
 import Like from '../images/like.jpg'
@@ -21,7 +21,7 @@ const Home = () => {
     Food,
     Carone,
     Burger,
-    Worker,
+    // Worker,
     Side,
     Night,
     Like
