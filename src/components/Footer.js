@@ -16,9 +16,8 @@ const Footer = () => {
         </div>
         <div>
           <h3 className="text-xl font-semibold mb-4">Hours</h3>
-          <p className="flex items-center"><Clock className="mr-2" /> MARTES A JUEVES: 11:00 AM - 11:00 PM</p>
-          <p className="flex items-center"><Clock className="mr-2" />VIERNES Y SABADO: 11:00 AM - 3:00 AM</p>
-          <p className="flex items-center"><Clock className="mr-2" />DOMINGO: 11:00 AM - 11:00 PM</p>
+          <p className="flex items-center"><Clock className="mr-2" /> MARTES A SABADO: 3:00PM - 12:00 AM</p>
+          <p className="flex items-center"><Clock className="mr-2" />DOMINGO: 1:00PM - 12:00AM</p>
         </div>
       </div>
       <div className="mt-8 text-center">
